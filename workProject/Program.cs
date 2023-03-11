@@ -7,15 +7,20 @@ Console.Clear();
 
 Console.Write("Введите элементы массива любой длины через пробел: ");
 
+string[] fullCharStrArr = GetArrayFromString(Console.ReadLine());
+// string[] fullCharStrArr = new string[] { "333", "_goof_", "mir", "0?)", "__", "+trainer", "444" };
+
+string[] threeCharStrArr = FullToThreeCharStrArr(fullCharStrArr);
+
+writeArray(fullCharStrArr);
+Console.Write(" -> ");
+writeArray(threeCharStrArr);
+
 string[] GetArrayFromString(string enteredString)
 {
     string[] arrayStrings = enteredString.Split(' ', StringSplitOptions.RemoveEmptyEntries);
     return arrayStrings;
 }
-
-string[] fullCharStrArr = GetArrayFromString(Console.ReadLine());
-// string[] fullCharStrArr = new string[] { "333", "_goof_", "mir", "0?)", "__", "+trainer", "444" };
-
 
 string[] FullToThreeCharStrArr(string[] fullChar)
 {
@@ -40,8 +45,6 @@ string[] FullToThreeCharStrArr(string[] fullChar)
     return threeChar;
 }
 
-string[] threeCharStrArr = FullToThreeCharStrArr(fullCharStrArr);
-
 void writeArray(string[] array)
 {
     Console.Write("[");
@@ -55,7 +58,3 @@ void writeArray(string[] array)
     }
     Console.Write("]");
 }
-
-writeArray(fullCharStrArr);
-Console.Write(" -> ");
-writeArray(threeCharStrArr);
